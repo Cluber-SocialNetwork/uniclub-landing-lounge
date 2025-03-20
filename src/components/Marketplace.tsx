@@ -105,7 +105,7 @@ const Marketplace = () => {
     {
       icon: <BookOpen size={24} />,
       title: "Apuntes de Cálculo Diferencial",
-      price: "$15",
+      price: "S/15",
       category: "Material de Estudio",
       userName: "Carlos M.",
       userAvatar: "https://i.pravatar.cc/150?img=33"
@@ -113,7 +113,7 @@ const Marketplace = () => {
     {
       icon: <Laptop size={24} />,
       title: "Diseño de Slides para Exposiciones",
-      price: "$25",
+      price: "S/25",
       category: "UniGigs",
       userName: "Ana P.",
       userAvatar: "https://i.pravatar.cc/150?img=47"
@@ -121,7 +121,7 @@ const Marketplace = () => {
     {
       icon: <BookOpen size={24} />,
       title: "Manual Economía Política (usado)",
-      price: "$12",
+      price: "S/12",
       category: "Libros",
       userName: "Miguel L.",
       userAvatar: "https://i.pravatar.cc/150?img=68"
@@ -129,7 +129,7 @@ const Marketplace = () => {
     {
       icon: <Coffee size={24} />,
       title: "Clases de Inglés Conversacional",
-      price: "$8/hr",
+      price: "S/8 x hr",
       category: "Intercambio de Skills",
       userName: "Lucía G.",
       userAvatar: "https://i.pravatar.cc/150?img=45"

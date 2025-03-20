@@ -34,11 +34,10 @@ const Hero = () => {
                 PARA ESTUDIANTES COMO TU
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                La red social que <span className="text-gradient">entiende</span> tu vida universitaria
+                La red social que <span className="text-gradient">potencia </span> tu vida universitaria
               </h1>
               <p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0">
-                UniClub conecta a estudiantes, permite intercambiar conocimientos y desbloquea oportunidades exclusivas para tu etapa universitaria.
-              </p>
+                Conecta estudiantes, intercambia tus conocimientos y abre oportunidades a ingresos y eventos exclusivos de tu comunidad.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <a href="#register" className="btn-primary inline-flex items-center">
                   <span>¡Únete ahora!</span>
@@ -82,7 +81,7 @@ const Hero = () => {
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-primary text-white py-2 px-4 rounded-lg shadow-lg transform rotate-2">
-                <span className="text-sm font-semibold">¡Únete al movimiento!</span>
+                <span className="text-sm font-semibold">¡Se parte de UniClub!</span>
               </div>
             </div>
           </div>

@@ -33,7 +33,7 @@ const Community = () => {
     {
       icon: <Users size={24} />,
       title: "Conexiones relevantes",
-      description: "Conecta con estudiantes de tu carrera y universidad que comparten tus intereses académicos."
+      description: "Conecta con estudiantes de tu carrera y comparte tus experiencias."
     },
     {
       icon: <Globe size={24} />,
@@ -64,10 +64,10 @@ const Community = () => {
               Comunidad UniClub
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-              Una comunidad exclusiva para <span className="text-gradient">universitarios</span>
+            Una comunidad <span className="text-gradient">diseñada</span> para universitarios
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              UniClub crea un espacio donde la colaboración y el networking entre estudiantes universitarios se vuelve natural y productivo, potenciando tu vida académica y profesional.
+            UniClub crea un espacio donde la colaboración y las conexiones profesionales entre estudiantes se convierten en ventajas tangibles para tu futuro académico y profesional
             </p>
             
             <div className="space-y-6">

@@ -1,7 +1,9 @@
 
 import { 
   Users, MessageCircle, GraduationCap, BookOpen, 
-  ShoppingCart, Calendar, Zap
+  ShoppingCart, Calendar, Zap,
+  MessagesSquare,
+  Book
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
@@ -62,6 +64,11 @@ const Feature = ({ icon, title, description, delay }: FeatureProps) => {
 const Features = () => {
   const features = [
     {
+      icon: <Book size={24} />,
+      title: "Sin miedo al primer día",
+      description: "Ser cachimbo nunca ha sido tan fácil, encuentra guías o alumnos que quieran ayudarte."
+    },
+    {
       icon: <Users size={24} />,
       title: "Comunidad Exclusiva",
       description: "Conecta con estudiantes de tu universidad, comparte experiencias y crea tu red de contactos."
@@ -89,7 +96,12 @@ const Features = () => {
     {
       icon: <Zap size={24} />,
       title: "UniGigs",
-      description: "Encuentra microtrabajos que se adapten a tus horarios y gana dinero entre clases."
+      description: "Encuentra trabajos flexibles adaptados a tu horario académico y gana dinero extra."
+    },
+    {
+      icon: <MessagesSquare size={24} />,
+      title: "Foros de Preguntas",
+      description: "Has preguntas y recibe respuestas de estudiantes que ya han pasado por lo mismo."
     }
   ];
 
@@ -129,7 +141,7 @@ const Features = () => {
           <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/10 text-primary rounded-md">
             CARACTERÍSTICAS
           </span>
-          <h2 className="section-title">Todo lo que necesitas para sobrevivir la U</h2>
+          <h2 className="section-title">Todo lo que necesitas para disfrutar la universidad</h2>
           <p className="section-subtitle">
             UniClub reúne todas las herramientas que hacen tu vida universitaria más fácil, divertida y productiva.
           </p>
