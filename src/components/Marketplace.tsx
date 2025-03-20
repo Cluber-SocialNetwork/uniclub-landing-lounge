@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { ShoppingBag, BookOpen, Coffee, Laptop } from 'lucide-react';
+import { ShoppingBag, BookOpen, Coffee, Laptop, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface MarketplaceItemProps {
@@ -45,12 +45,12 @@ const MarketplaceItem = ({ icon, title, price, category, userName, userAvatar, d
     <div 
       ref={itemRef}
       className={cn(
-        "glass-card p-4 transition-all duration-700 transform",
+        "bg-white shadow-lg rounded-lg p-4 transition-all duration-700 transform border-l-4 border-primary",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
       )}
     >
       <div className="flex items-start">
-        <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4">
+        <div className="p-3 rounded-md bg-primary text-white mr-4">
           {icon}
         </div>
         <div className="flex-1">
@@ -104,51 +104,51 @@ const Marketplace = () => {
   const items = [
     {
       icon: <BookOpen size={24} />,
-      title: "Libro de Cálculo Avanzado",
-      price: "$35",
-      category: "Material Académico",
+      title: "Apuntes de Cálculo Diferencial",
+      price: "$15",
+      category: "Material de Estudio",
       userName: "Carlos M.",
       userAvatar: "https://i.pravatar.cc/150?img=33"
     },
     {
       icon: <Laptop size={24} />,
-      title: "Diseño de Sitio Web",
-      price: "$120",
+      title: "Diseño de Slides para Exposiciones",
+      price: "$25",
       category: "UniGigs",
       userName: "Ana P.",
       userAvatar: "https://i.pravatar.cc/150?img=47"
     },
     {
       icon: <BookOpen size={24} />,
-      title: "Apuntes Psicología Social",
-      price: "$15",
-      category: "Material Académico",
+      title: "Manual Economía Política (usado)",
+      price: "$12",
+      category: "Libros",
       userName: "Miguel L.",
       userAvatar: "https://i.pravatar.cc/150?img=68"
     },
     {
       icon: <Coffee size={24} />,
-      title: "Clases de Francés",
-      price: "$25/hr",
-      category: "Intercambio de Habilidades",
+      title: "Clases de Inglés Conversacional",
+      price: "$8/hr",
+      category: "Intercambio de Skills",
       userName: "Lucía G.",
       userAvatar: "https://i.pravatar.cc/150?img=45"
     }
   ];
 
   return (
-    <section id="marketplace" className="py-20 bg-gray-50" ref={sectionRef}>
+    <section id="marketplace" className="py-20 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className={cn(
           "text-center mb-16 transition-all duration-700",
           sectionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/10 text-primary rounded-full">
-            Marketplace
+          <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/10 text-primary rounded-md">
+            MARKETPLACE
           </span>
-          <h2 className="section-title">Intercambia lo que necesitas</h2>
+          <h2 className="section-title">Compra, Vende, Intercambia</h2>
           <p className="section-subtitle">
-            Compra, vende o intercambia productos y servicios específicos para estudiantes, desde libros y apuntes hasta clases particulares y microtrabajos.
+            Todo lo que necesitas para tu vida universitaria está aquí: libros usados, apuntes, servicios y más. Intercambia con otros estudiantes y ahorra.
           </p>
         </div>
         
@@ -171,14 +171,15 @@ const Marketplace = () => {
           "mt-12 text-center transition-all duration-700 delay-500",
           sectionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <div className="inline-flex items-center p-4 glass-card">
+          <div className="bg-secondary inline-flex items-center p-4 rounded-lg text-white">
             <ShoppingBag className="text-primary mr-3" size={24} />
-            <span className="text-gray-700 font-medium">+500 productos y servicios disponibles</span>
+            <span className="font-medium">+800 productos y servicios disponibles</span>
           </div>
           
           <div className="mt-8">
-            <a href="#register" className="btn-primary">
-              Explorar marketplace
+            <a href="#register" className="btn-primary inline-flex items-center">
+              <span>Ver marketplace completo</span>
+              <ArrowRight size={18} className="ml-2" />
             </a>
           </div>
         </div>

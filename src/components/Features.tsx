@@ -1,7 +1,7 @@
 
 import { 
   Users, MessageCircle, GraduationCap, BookOpen, 
-  ShoppingCart, Calendar
+  ShoppingCart, Calendar, Zap
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
@@ -50,7 +50,7 @@ const Feature = ({ icon, title, description, delay }: FeatureProps) => {
         isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
       )}
     >
-      <div className="mb-4 p-3 rounded-full bg-primary/10 text-primary">
+      <div className="mb-4 p-3 rounded-md bg-primary text-white">
         {icon}
       </div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
@@ -62,34 +62,34 @@ const Feature = ({ icon, title, description, delay }: FeatureProps) => {
 const Features = () => {
   const features = [
     {
-      icon: <Users size={32} />,
+      icon: <Users size={24} />,
       title: "Comunidad Exclusiva",
-      description: "Conecta con estudiantes de tu universidad y de todo el país en un entorno exclusivo y seguro."
+      description: "Conecta con estudiantes de tu universidad, comparte experiencias y crea tu red de contactos."
     },
     {
-      icon: <MessageCircle size={32} />,
-      title: "Mensajería Inteligente",
-      description: "Comunícate fácilmente, crea grupos por materias o intereses, y comparte recursos académicos."
+      icon: <MessageCircle size={24} />,
+      title: "Chat y Grupos",
+      description: "Crea grupos de estudio, comparte apuntes y resuelve dudas con otros estudiantes."
     },
     {
-      icon: <ShoppingCart size={32} />,
+      icon: <ShoppingCart size={24} />,
       title: "Marketplace Estudiantil",
-      description: "Compra, vende o intercambia libros, apuntes y materiales específicos para tus estudios."
+      description: "Compra, vende o intercambia libros, apuntes, y material de estudio entre compañeros."
     },
     {
-      icon: <GraduationCap size={32} />,
-      title: "Intercambio de Habilidades",
-      description: "Enseña lo que sabes y aprende lo que necesitas con el sistema 'Aprende X, Enseña Y'."
+      icon: <GraduationCap size={24} />,
+      title: "Intercambio de Skills",
+      description: "Aprende algo nuevo enseñando lo que dominas. Comparte conocimientos y ahorra dinero."
     },
     {
-      icon: <Calendar size={32} />,
+      icon: <Calendar size={24} />,
       title: "Eventos Universitarios",
-      description: "Descubre, organiza y participa en eventos académicos, deportivos y sociales de tu interés."
+      description: "Descubre fiestas, talleres, conferencias y todo lo que pasa en tu campus."
     },
     {
-      icon: <BookOpen size={32} />,
-      title: "UniGigs Microtrabajos",
-      description: "Encuentra oportunidades laborales flexibles compatibles con tus horarios de estudio."
+      icon: <Zap size={24} />,
+      title: "UniGigs",
+      description: "Encuentra microtrabajos que se adapten a tus horarios y gana dinero entre clases."
     }
   ];
 
@@ -119,18 +119,19 @@ const Features = () => {
   }, []);
 
   return (
-    <section id="features" className="py-20 bg-gray-50" ref={sectionRef}>
-      <div className="container mx-auto px-4">
+    <section id="features" className="py-20 relative" ref={sectionRef}>
+      <div className="absolute inset-0 bg-gray-50 slant-bg"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className={cn(
           "text-center mb-16 transition-all duration-700",
           sectionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/10 text-primary rounded-full">
-            Características
+          <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/10 text-primary rounded-md">
+            CARACTERÍSTICAS
           </span>
-          <h2 className="section-title">Todo lo que necesitas en un solo lugar</h2>
+          <h2 className="section-title">Todo lo que necesitas para sobrevivir la U</h2>
           <p className="section-subtitle">
-            UniClub integra todas las herramientas que un estudiante universitario necesita para su vida académica y social.
+            UniClub reúne todas las herramientas que hacen tu vida universitaria más fácil, divertida y productiva.
           </p>
         </div>
         
