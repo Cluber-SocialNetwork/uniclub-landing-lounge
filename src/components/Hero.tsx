@@ -32,7 +32,7 @@ const Hero = () => {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             )}>
               <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/20 text-primary rounded-md">
-                PARA ESTUDIANTES COMO TÚ
+                PARA ESTUDIANTES COMO TU
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                 La red social que <span className="text-gradient">entiende</span> tu vida universitaria
