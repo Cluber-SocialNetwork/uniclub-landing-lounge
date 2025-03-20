@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
@@ -16,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative pt-24 pb-20 md:pt-36 md:pb-32 bg-secondary text-white overflow-hidden">
+    <section className="relative h-screen flex items-center bg-secondary text-white overflow-hidden">
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-bg"></div>
       
