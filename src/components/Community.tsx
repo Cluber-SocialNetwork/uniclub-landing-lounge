@@ -53,7 +53,7 @@ const Community = () => {
   ];
 
   return (
-    <section id="community" className="py-20 bg-gray-100" ref={sectionRef}>
+    <section id="community" className="py-32 bg-gray-100" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className={cn(

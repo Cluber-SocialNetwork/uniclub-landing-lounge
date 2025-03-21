@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Mail, School, CheckCircle } from 'lucide-react';
+import { ArrowRight, Mail, School, CheckCircle, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const CTA = () => {
@@ -7,7 +7,9 @@ const CTA = () => {
   const [email, setEmail] = useState('');
   const [university, setUniversity] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
+  const [emailError, setEmailError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isVerificationSent, setIsVerificationSent] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,21 +34,57 @@ const CTA = () => {
     };
   }, []);
 
+  // Validar el formato del correo según la universidad seleccionada
+  const validateEmail = (email: string, university: string) => {
+    if (!email) {
+      setEmailError('El correo electrónico es obligatorio');
+      return false;
+    }
+
+    if (university === 'UPC') {
+      // Formato: U20XXXXXXX@upc.edu.pe
+      const upcRegex = /^[uU]20[a-zA-Z0-9]+@upc\.edu\.pe$/;
+      if (!upcRegex.test(email)) {
+        setEmailError('El correo debe tener el formato U20XXXXXXX@upc.edu.pe');
+        return false;
+      }
+    } else if (university === 'PUCP') {
+      // Formato: a20XXXXXXX@pucp.edu.pe o nombre.apellido@pucp.edu.pe
+      const pucp1Regex = /^[aA]20[a-zA-Z0-9]+@pucp\.edu\.pe$/;
+      const pucp2Regex = /^[a-zA-Z]+\.[a-zA-Z]+@pucp\.edu\.pe$/;
+      if (!pucp1Regex.test(email) && !pucp2Regex.test(email)) {
+        setEmailError('El correo debe tener formato A20XXXXXXX@pucp.edu.pe o nombre.apellido@pucp.edu.pe');
+        return false;
+      }
+    } else {
+      setEmailError('Por favor, selecciona una universidad');
+      return false;
+    }
+
+    setEmailError('');
+    return true;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation - check for educational email
-    const isEduEmail = email.endsWith('.edu') || email.includes('edu.');
-    setIsEmailValid(isEduEmail);
+    const isValid = validateEmail(email, university);
+    setIsEmailValid(isValid);
     
-    if (isEduEmail) {
-      // Here you would handle the form submission
+    if (isValid) {
+      // Simulación de envío de verificación
+      setIsVerificationSent(true);
+      
+      // Aquí enviarías un correo de verificación real
       console.log('Form submitted:', { email, university });
-      // Reset form
-      setEmail('');
-      setUniversity('');
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
+      
+      setTimeout(() => {
+        setIsVerificationSent(false);
+        setEmail('');
+        setUniversity('');
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }, 1500);
     }
   };
 
@@ -89,6 +127,28 @@ const CTA = () => {
             >
               <div className="space-y-6">
                 <div className="relative">
+                  <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-2">
+                    Universidad
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                      <School size={18} />
+                    </div>
+                    <select
+                      id="university"
+                      value={university}
+                      onChange={(e) => setUniversity(e.target.value)}
+                      className="w-full px-4 py-3 pl-10 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm hover:shadow-md appearance-none bg-white"
+                      required
+                    >
+                      <option value="">Selecciona tu universidad</option>
+                      <option value="UPC">Universidad Peruana de Ciencias Aplicadas</option>
+                      <option value="PUCP">Pontificia Universidad Católica del Perú</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="relative">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Correo electrónico institucional
                   </label>
@@ -101,7 +161,9 @@ const CTA = () => {
                       id="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="tu.nombre@universidad.edu"
+                      placeholder={university === 'UPC' ? "U20XXXXXXX@upc.edu.pe" : 
+                                  university === 'PUCP' ? "A20XXXXXXX@pucp.edu.pe" : 
+                                  "Selecciona una universidad primero"}
                       className={cn(
                         "w-full px-4 py-3 pl-10 rounded-xl border focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm hover:shadow-md",
                         !isEmailValid ? "border-red-500 bg-red-50" : "border-gray-200"
@@ -111,38 +173,32 @@ const CTA = () => {
                   </div>
                   {!isEmailValid && (
                     <p className="mt-2 text-sm text-red-500 flex items-center">
-                      <span className="mr-1">⚠️</span> Por favor introduce un correo institucional válido (.edu)
+                      <AlertCircle size={14} className="mr-1" />
+                      {emailError}
                     </p>
                   )}
-                </div>
-                
-                <div className="relative">
-                  <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-2">
-                    Universidad
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                      <School size={18} />
-                    </div>
-                    <input
-                      type="text"
-                      id="university"
-                      value={university}
-                      onChange={(e) => setUniversity(e.target.value)}
-                      placeholder="Nombre de tu universidad"
-                      className="w-full px-4 py-3 pl-10 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm hover:shadow-md"
-                      required
-                    />
-                  </div>
                 </div>
                 
                 <div className="pt-4">
                   <button 
                     type="submit" 
                     className="w-full btn-primary flex justify-center items-center py-3.5 rounded-xl text-lg font-medium transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                    disabled={isVerificationSent}
                   >
-                    <span>Unirse a la lista de espera</span>
-                    <ArrowRight className="ml-2" size={20} />
+                    {isVerificationSent ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Verificando...
+                      </>
+                    ) : (
+                      <>
+                        <span>Unirse a la lista de espera</span>
+                        <ArrowRight className="ml-2" size={20} />
+                      </>
+                    )}
                   </button>
                   
                   {isSubmitted && (
