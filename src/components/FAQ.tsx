@@ -163,12 +163,6 @@ const FAQ = () => {
           "text-center mt-12 transition-all duration-700 delay-500",
           sectionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <p className="mb-6 text-gray-600">
-            ¿No encuentras respuesta a tu pregunta?
-          </p>
-          <a href="#contact" className="btn-outline">
-            Contáctanos
-          </a>
         </div>
       </div>
     </section>

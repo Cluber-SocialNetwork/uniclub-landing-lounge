@@ -137,7 +137,7 @@ const Marketplace = () => {
   ];
 
   return (
-    <section id="marketplace" className="py-20 bg-white" ref={sectionRef}>
+    <section id="marketplace" className="py-20 bg-gray-200" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className={cn(
           "text-center mb-16 transition-all duration-700",

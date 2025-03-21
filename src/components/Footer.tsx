@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-white">Uni</span>
-              <span className="text-primary">Club</span>
+              <span className="text-white">Cluber</span>
+              <span className="text-primary"></span>
             </h3>
             <p className="text-gray-400 mb-4">
               La red social exclusiva para estudiantes universitarios.

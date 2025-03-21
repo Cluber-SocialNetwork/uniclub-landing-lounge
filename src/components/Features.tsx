@@ -131,8 +131,7 @@ const Features = () => {
   }, []);
 
   return (
-    <section id="features" className="py-20 relative" ref={sectionRef}>
-      <div className="absolute inset-0 bg-gray-50 slant-bg"></div>
+    <section id="features" className="py-20 bg-gray-200" ref={sectionRef}>
       <div className="container mx-auto px-4 relative z-10">
         <div className={cn(
           "text-center mb-16 transition-all duration-700",
