@@ -36,7 +36,7 @@ const Navbar = () => {
             <a href="#features" className="nav-link text-white">Características</a>
             <a href="#community" className="nav-link text-white">Comunidad</a>
             <a href="#marketplace" className="nav-link text-white">Marketplace</a>
-            <a href="#testimonials" className="nav-link text-white">Testimonios</a>
+            {/*<a href="#testimonials" className="nav-link text-white">Testimonios</a>*/}
             <a href="#faq" className="nav-link text-white">FAQ</a>
           </div>
 
@@ -91,13 +91,13 @@ const Navbar = () => {
           >
             Marketplace
           </a>
-          <a 
+          {/*<a 
             href="#testimonials" 
             className="py-2 text-white hover:text-primary transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Testimonios
-          </a>
+          </a>*/}
           <a 
             href="#faq" 
             className="py-2 text-white hover:text-primary transition-colors"

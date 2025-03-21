@@ -51,7 +51,7 @@ const CTA = () => {
   };
 
   return (
-    <section id="register" className="py-24 relative overflow-hidden bg-gradient-to-br from-white to-gray-300" ref={sectionRef}>
+    <section id="register" className="py-10 relative overflow-hidden bg-gradient-to-br from-white to-gray-300" ref={sectionRef}>
       {/* Background decoration */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
