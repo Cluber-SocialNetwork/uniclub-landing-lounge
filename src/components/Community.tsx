@@ -61,13 +61,13 @@ const Community = () => {
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           )}>
             <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/10 text-primary rounded-full">
-              Comunidad UniClub
+              Comunidad Cluber
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
             Una comunidad <span className="text-gradient">diseñada</span> para universitarios
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-            UniClub crea un espacio donde la colaboración y las conexiones profesionales entre estudiantes se convierten en ventajas tangibles para tu futuro académico y profesional
+            Cluber crea un espacio donde la colaboración y las conexiones profesionales entre estudiantes se convierten en ventajas tangibles para tu futuro académico y profesional
             </p>
             
             <div className="space-y-6">

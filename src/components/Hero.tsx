@@ -81,7 +81,7 @@ const Hero = () => {
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-primary text-white py-2 px-4 rounded-lg shadow-lg transform rotate-2">
-                <span className="text-sm font-semibold">¡Se parte de UniClub!</span>
+                <span className="text-sm font-semibold">¡Se parte de Cluber!</span>
               </div>
             </div>
           </div>

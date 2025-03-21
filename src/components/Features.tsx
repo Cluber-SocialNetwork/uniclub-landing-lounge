@@ -143,7 +143,7 @@ const Features = () => {
           </span>
           <h2 className="section-title">Todo lo que necesitas para disfrutar la universidad</h2>
           <p className="section-subtitle">
-            UniClub reúne todas las herramientas que hacen tu vida universitaria más fácil, divertida y productiva.
+            Cluber reúne todas las herramientas que hacen tu vida universitaria más fácil, divertida y productiva.
           </p>
         </div>
         

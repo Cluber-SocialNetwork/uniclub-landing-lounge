@@ -81,7 +81,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contacto</h4>
             <ul className="space-y-2">
               <li className="text-gray-400">
-                hola@uniclub.com
+                hola@Cluber.com
               </li>
               <li className="text-gray-400">
                 +123 456 7890
@@ -97,7 +97,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} UniClub. Todos los derechos reservados.
+            © {new Date().getFullYear()} Cluber. Todos los derechos reservados.
           </p>
           <div className="flex items-center text-gray-400 text-sm">
             <span>Creado por estudiantes, </span>

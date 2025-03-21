@@ -105,8 +105,8 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "¿Quién puede registrarse en UniClub?",
-      answer: "UniClub es exclusivo para estudiantes universitarios con correo electrónico institucional activo. Verificamos cada registro para garantizar un entorno académico seguro y relevante."
+      question: "¿Quién puede registrarse en Cluber?",
+      answer: "Cluber es exclusivo para estudiantes universitarios con correo electrónico institucional activo. Verificamos cada registro para garantizar un entorno académico seguro y relevante."
     },
     {
       question: "¿Cómo funciona el sistema de intercambio de habilidades?",
@@ -125,7 +125,7 @@ const FAQ = () => {
       answer: "UniGigs son microtrabajos flexibles ideales para estudiantes. Empresas y particulares publican oportunidades laborales de corta duración o proyectos freelance adaptados a horarios académicos. Tú eliges los que te interesan y negocias directamente."
     },
     {
-      question: "¿Cómo puedo organizar un evento en UniClub?",
+      question: "¿Cómo puedo organizar un evento en Cluber?",
       answer: "Desde tu perfil puedes crear eventos académicos, deportivos o sociales. Especifica fecha, lugar, descripción y limita la asistencia a tu universidad o ábrelo a toda la comunidad. Incluye formularios de registro personalizados si lo necesitas."
     }
   ];
@@ -142,7 +142,7 @@ const FAQ = () => {
           </span>
           <h2 className="section-title">¿Tienes dudas?</h2>
           <p className="section-subtitle">
-            Respondemos las preguntas más comunes sobre UniClub.
+            Respondemos las preguntas más comunes sobre Cluber.
           </p>
         </div>
         

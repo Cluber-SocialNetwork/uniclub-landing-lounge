@@ -42,7 +42,7 @@ const Testimonial = ({ content, name, role, university, avatar }: TestimonialPro
 const Testimonials = () => {
   const testimonials = [
     {
-      content: "UniClub ha transformado mi experiencia universitaria. He encontrado compañeros para grupos de estudio y hasta conseguí un trabajo a tiempo parcial gracias a la sección de UniGigs.",
+      content: "Cluber ha transformado mi experiencia universitaria. He encontrado compañeros para grupos de estudio y hasta conseguí un trabajo a tiempo parcial gracias a la sección de UniGigs.",
       name: "Andrea Martínez",
       role: "Estudiante de Psicología",
       university: "Universidad Nacional",
@@ -63,21 +63,21 @@ const Testimonials = () => {
       avatar: "https://i.pravatar.cc/150?img=49"
     },
     {
-      content: "Me encanta cómo UniClub verifica que todos seamos estudiantes reales. Eso crea un ambiente de confianza que no existe en otras redes sociales.",
+      content: "Me encanta cómo Cluber verifica que todos seamos estudiantes reales. Eso crea un ambiente de confianza que no existe en otras redes sociales.",
       name: "Fernando Díaz",
       role: "Estudiante de Medicina",
       university: "Universidad Nacional",
       avatar: "https://i.pravatar.cc/150?img=61"
     },
     {
-      content: "Gracias a los eventos publicados en UniClub he podido asistir a conferencias y talleres increíbles que ni siquiera sabía que existían.",
+      content: "Gracias a los eventos publicados en Cluber he podido asistir a conferencias y talleres increíbles que ni siquiera sabía que existían.",
       name: "Carolina Torres",
       role: "Estudiante de Arquitectura",
       university: "Universidad de Diseño",
       avatar: "https://i.pravatar.cc/150?img=40"
     },
     {
-      content: "UniClub ha sido clave para adaptarme a la vida universitaria. Como estudiante de primer año, me ha ayudado a conectar con compañeros y encontrar recursos valiosos.",
+      content: "Cluber ha sido clave para adaptarme a la vida universitaria. Como estudiante de primer año, me ha ayudado a conectar con compañeros y encontrar recursos valiosos.",
       name: "Mateo Suárez",
       role: "Estudiante de Derecho",
       university: "Universidad Central",
@@ -133,7 +133,7 @@ const Testimonials = () => {
           </span>
           <h2 className="section-title">Lo que dicen nuestros usuarios</h2>
           <p className="section-subtitle">
-            Descubre cómo UniClub ha impactado positivamente en la vida universitaria de nuestros miembros.
+            Descubre cómo Cluber ha impactado positivamente en la vida universitaria de nuestros miembros.
           </p>
         </div>
         

@@ -68,7 +68,7 @@ const CTA = () => {
                 ¿Listo para transformar tu vida universitaria?
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Sé de los primeros en acceder a UniClub cuando lancemos en tu universidad. Regístrate ahora en nuestra lista de espera.
+                Sé de los primeros en acceder a Cluber cuando lancemos en tu universidad. Regístrate ahora en nuestra lista de espera.
               </p>
             </div>
             

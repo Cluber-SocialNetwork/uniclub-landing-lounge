@@ -27,8 +27,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="/" className="text-2xl font-bold">
-              <span className="text-white">Uni</span>
-              <span className="text-primary">Club</span>
+              <span className="text-white">Cluber</span>
+              <span className="text-primary"></span>
             </a>
           </div>
 
