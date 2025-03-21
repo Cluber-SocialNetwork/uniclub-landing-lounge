@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -42,7 +41,13 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:block">
-            <a href="#register" className="btn-primary">Registrarse</a>
+            <a 
+              href="#register" 
+              className="group relative inline-flex items-center overflow-hidden rounded-full bg-primary px-8 py-2.5 text-white shadow-md transition-all duration-300 ease-in-out hover:bg-white hover:text-primary hover:ring-2 hover:ring-primary hover:shadow-lg"
+            >
+              <span className="mr-2">Registrarse</span>
+              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -102,10 +107,11 @@ const Navbar = () => {
           </a>
           <a 
             href="#register" 
-            className="btn-primary text-center"
+            className="group relative flex justify-center items-center overflow-hidden rounded-full bg-primary px-8 py-2.5 text-white shadow-md transition-all duration-300 ease-in-out hover:bg-white hover:text-primary hover:ring-2 hover:ring-primary hover:shadow-lg"
             onClick={() => setIsOpen(false)}
           >
-            Registrarse
+            <span className="mr-2">Registrarse</span>
+            <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
