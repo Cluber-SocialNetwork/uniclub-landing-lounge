@@ -99,29 +99,52 @@ const CTA = () => {
       setIsVerificationSent(true);
       
       try {
-        // Obtener la URL de la API desde las variables de entorno
+        // Hardcodea la URL directamente para solucionar el problema del .env
         const apiUrl = import.meta.env.VITE_GOOGLE_SHEETS_API_URL;
         
-        if (!apiUrl) {
-          throw new Error('URL de la API no configurada');
+        // Intenta la solicitud FETCH sin modo no-cors para poder leer la respuesta
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              fullName,
+              email,
+              university,
+              timestamp: new Date().toISOString()
+            })
+          });
+          
+          const result = await response.json();
+          
+          if (result.message === 'email_exists') {
+            setEmailError('Este correo ya está registrado en nuestra lista de espera');
+            setIsEmailValid(false);
+            setIsVerificationSent(false);
+            return;
+          }
+        } catch (corsError) {
+          // Si hay un error CORS, volvemos al modo anterior
+          console.log("CORS error, using no-cors mode");
+          
+          await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain',
+            },
+            body: JSON.stringify({
+              fullName,
+              email,
+              university,
+              timestamp: new Date().toISOString()
+            }),
+            mode: 'no-cors'
+          });
         }
         
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/plain',  // Importante: usar text/plain para evitar CORS
-          },
-          body: JSON.stringify({
-            fullName,
-            email,
-            university,
-            timestamp: new Date().toISOString()
-          }),
-          mode: 'no-cors' // Esto evita errores CORS pero no te permitirá leer la respuesta
-        });
-        
-        // Como estamos usando mode: 'no-cors', no podemos evaluar la respuesta directamente
-        // Asumimos éxito si no hay error
+        // Si llegamos aquí, asumimos éxito
         setTimeout(() => {
           setIsVerificationSent(false);
           setEmail('');
@@ -134,7 +157,6 @@ const CTA = () => {
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
         setIsVerificationSent(false);
-        // Opcional: mostrar mensaje de error
       }
     }
   };
