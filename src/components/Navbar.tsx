@@ -4,8 +4,9 @@ import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  /*const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  // Añadimos listener de scroll para detectar cuando el usuario hace scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -14,22 +15,22 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  */
 
   return (
     <nav 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
-        // Quitamos la lógica condicional y dejamos el nav siempre con el estilo principal
-        'bg-secondary text-white shadow-md py-5'
+        'bg-secondary text-white shadow-md py-4 md:py-5',
+        // Añadimos una clase específica cuando se hace scroll para manejar estilos específicos
+        scrolled && 'scroll-active'
       )}
+      style={{ transform: 'translateZ(0)' }} // Forzar composición de capas
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="/" className="text-2xl font-bold">
               <span className="text-white">Cluber</span>
-              <span className="text-primary"></span>
             </a>
           </div>
 
@@ -38,7 +39,6 @@ const Navbar = () => {
             <a href="#features" className="nav-link text-white">Características</a>
             <a href="#community" className="nav-link text-white">Comunidad</a>
             <a href="#marketplace" className="nav-link text-white">Marketplace</a>
-            {/*<a href="#testimonials" className="nav-link text-white">Testimonios</a>*/}
             <a href="#faq" className="nav-link text-white">FAQ</a>
           </div>
 
@@ -53,14 +53,13 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="md:hidden">
-            <button 
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-white hover:text-primary transition-colors"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-white hover:text-primary transition-colors"
+            aria-label="Abrir menú"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
 
@@ -93,13 +92,6 @@ const Navbar = () => {
           >
             Marketplace
           </a>
-          {/*<a 
-            href="#testimonials" 
-            className="py-2 text-white hover:text-primary transition-colors"
-            onClick={() => setIsOpen(false)}
-          >
-            Testimonios
-          </a>*/}
           <a 
             href="#faq" 
             className="py-2 text-white hover:text-primary transition-colors"

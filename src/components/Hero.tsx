@@ -6,7 +6,6 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
-    // Add a small delay for dramatic effect
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
@@ -15,7 +14,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center bg-secondary text-white overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-secondary text-white overflow-hidden">
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-bg"></div>
       
@@ -23,35 +22,34 @@ const Hero = () => {
       <div className="absolute top-1/4 right-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      {/* Aumentamos el padding superior para compensar el navbar fijo */}
+      <div className="container mx-auto px-4 relative z-10 pt-24 sm:pt-28 md:pt-24">
+        {/* Resto del contenido igual */}
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 text-center md:text-left">
             <div className={cn(
-              "transition-all duration-700 transform",
+              "transition-all duration-700 transform py-8 md:py-0",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             )}>
-              <span className="inline-block py-1 px-3 mb-3 text-xs font-semibold bg-primary/20 text-primary rounded-md">
+              <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold bg-primary/20 text-primary rounded-md">
                 PARA ESTUDIANTES COMO TU
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 La red social que <span className="text-gradient">potencia </span> tu vida universitaria
               </h1>
-              <p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0">
+              <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0">
                 Conecta estudiantes, intercambia tus conocimientos y abre oportunidades a ingresos y eventos exclusivos de tu comunidad.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <a href="#register" className="btn-primary inline-flex items-center">
+                <a href="#register" className="btn-primary inline-flex items-center justify-center">
                   <span>¡Únete ahora!</span>
                   <ArrowRight size={18} className="ml-2" />
-                </a>
-                <a href="#features" className="btn-outline">
-                  Explora más
                 </a>
               </div>
               
               <div className="mt-8 flex items-center justify-center md:justify-start">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-secondary overflow-hidden">
+                    <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-secondary overflow-hidden">
                       <img
                         src={`https://i.pravatar.cc/100?img=${i+10}`}
                         alt="User avatar"
@@ -68,7 +66,7 @@ const Hero = () => {
           </div>
           
           <div className={cn(
-            "md:w-1/2 mt-12 md:mt-0 transition-all duration-1000 delay-300",
+            "md:w-1/2 mt-6 md:mt-0 transition-all duration-1000 delay-300 pb-8 md:pb-0",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
           )}>
             <div className="relative">

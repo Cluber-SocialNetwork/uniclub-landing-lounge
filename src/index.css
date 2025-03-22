@@ -191,3 +191,17 @@
   opacity: 0.05;
 }
 
+@layer utilities {
+  .scroll-active {
+    position: fixed;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Safari y iOS específico */
+  @supports (-webkit-overflow-scrolling: touch) {
+    .fixed {
+      -webkit-transform: translateZ(0);
+    }
+  }
+}

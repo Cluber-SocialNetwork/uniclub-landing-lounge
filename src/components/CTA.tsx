@@ -89,7 +89,7 @@ const CTA = () => {
   };
 
   return (
-    <section id="register" className="py-10 relative overflow-hidden bg-gradient-to-br from-white to-gray-300" ref={sectionRef}>
+    <section id="register" className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-white to-gray-300" ref={sectionRef}>
       {/* Background decoration */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
@@ -99,20 +99,20 @@ const CTA = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="glass-card p-8 md:p-12 rounded-2xl shadow-lg backdrop-blur-sm bg-white/80 border border-white/20">
+          <div className="glass-card p-6 md:p-12 rounded-2xl shadow-lg backdrop-blur-sm bg-white/80 border border-white/20">
             <div 
               className={cn(
-                "text-center mb-12 transition-all duration-700",
+                "text-center mb-10 md:mb-12 transition-all duration-700",
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               )}
             >
               <span className="inline-block py-1 px-4 mb-4 text-sm font-semibold bg-primary/10 text-primary rounded-full">
                 Lista de espera exclusiva
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 ¿Listo para transformar tu vida universitaria?
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Sé de los primeros en acceder a Cluber cuando lancemos en tu universidad. 
                 Regístrate ahora y obtén beneficios exclusivos desde el primer día.
               </p>
@@ -125,7 +125,7 @@ const CTA = () => {
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
               )}
             >
-              <div className="space-y-6">
+              <div className="space-y-5 md:space-y-6">
                 <div className="relative">
                   <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-2">
                     Universidad
@@ -179,7 +179,7 @@ const CTA = () => {
                   )}
                 </div>
                 
-                <div className="pt-4">
+                <div className="pt-3 md:pt-4">
                   <button 
                     type="submit" 
                     className="w-full btn-primary flex justify-center items-center py-3.5 rounded-xl text-lg font-medium transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
@@ -212,34 +212,34 @@ const CTA = () => {
             </form>
             
             <div className={cn(
-              "mt-12 flex flex-wrap justify-center gap-8 transition-all duration-1000 delay-300",
+              "mt-10 md:mt-12 flex flex-wrap justify-center gap-4 md:gap-8 transition-all duration-1000 delay-300",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             )}>
               <div className="flex items-center space-x-3 bg-white p-3 px-5 rounded-xl shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <p className="text-gray-700 font-medium">Acceso prioritario</p>
+                <p className="text-sm md:text-base text-gray-700 font-medium">Acceso prioritario</p>
               </div>
               
               <div className="flex items-center space-x-3 bg-white p-3 px-5 rounded-xl shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <p className="text-gray-700 font-medium">Beneficios exclusivos</p>
+                <p className="text-sm md:text-base text-gray-700 font-medium">Beneficios exclusivos</p>
               </div>
               
               <div className="flex items-center space-x-3 bg-white p-3 px-5 rounded-xl shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <p className="text-gray-700 font-medium">100% gratuito</p>
+                <p className="text-sm md:text-base text-gray-700 font-medium">100% gratuito</p>
               </div>
             </div>
           </div>
