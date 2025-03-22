@@ -1,13 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Mail, School, CheckCircle, AlertCircle } from 'lucide-react';
+import { ArrowRight, Mail, School, CheckCircle, AlertCircle, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const CTA = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [email, setEmail] = useState('');
+  const [fullName, setFullName] = useState(''); // Nuevo estado para nombre y apellido
   const [university, setUniversity] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isNameValid, setIsNameValid] = useState(true); // Estado para validación del nombre
   const [emailError, setEmailError] = useState('');
+  const [nameError, setNameError] = useState(''); // Mensaje de error para el nombre
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVerificationSent, setIsVerificationSent] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -33,6 +36,24 @@ const CTA = () => {
       }
     };
   }, []);
+
+  // Validar nombre y apellido
+  const validateName = (name: string) => {
+    if (!name) {
+      setNameError('El nombre y apellido son obligatorios');
+      return false;
+    }
+    
+    // Comprobar si contiene al menos dos palabras (nombre y apellido)
+    const words = name.trim().split(/\s+/);
+    if (words.length < 2) {
+      setNameError('Debes ingresar tu nombre y apellido');
+      return false;
+    }
+    
+    setNameError('');
+    return true;
+  };
 
   // Validar el formato del correo según la universidad seleccionada
   const validateEmail = (email: string, university: string) => {
@@ -65,26 +86,56 @@ const CTA = () => {
     return true;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const isValid = validateEmail(email, university);
-    setIsEmailValid(isValid);
+    const isValidEmail = validateEmail(email, university);
+    const isValidName = validateName(fullName);
     
-    if (isValid) {
-      // Simulación de envío de verificación
+    setIsEmailValid(isValidEmail);
+    setIsNameValid(isValidName);
+    
+    if (isValidEmail && isNameValid) {
       setIsVerificationSent(true);
       
-      // Aquí enviarías un correo de verificación real
-      console.log('Form submitted:', { email, university });
-      
-      setTimeout(() => {
+      try {
+        // Obtener la URL de la API desde las variables de entorno
+        const apiUrl = import.meta.env.VITE_GOOGLE_SHEETS_API_URL;
+        
+        if (!apiUrl) {
+          throw new Error('URL de la API no configurada');
+        }
+        
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain',  // Importante: usar text/plain para evitar CORS
+          },
+          body: JSON.stringify({
+            fullName,
+            email,
+            university,
+            timestamp: new Date().toISOString()
+          }),
+          mode: 'no-cors' // Esto evita errores CORS pero no te permitirá leer la respuesta
+        });
+        
+        // Como estamos usando mode: 'no-cors', no podemos evaluar la respuesta directamente
+        // Asumimos éxito si no hay error
+        setTimeout(() => {
+          setIsVerificationSent(false);
+          setEmail('');
+          setFullName('');
+          setUniversity('');
+          setIsSubmitted(true);
+          setTimeout(() => setIsSubmitted(false), 5000);
+        }, 1500);
+        
+      } catch (error) {
+        console.error('Error al enviar el formulario:', error);
         setIsVerificationSent(false);
-        setEmail('');
-        setUniversity('');
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 5000);
-      }, 1500);
+        // Opcional: mostrar mensaje de error
+      }
     }
   };
 
@@ -126,6 +177,36 @@ const CTA = () => {
               )}
             >
               <div className="space-y-5 md:space-y-6">
+                {/* Nuevo campo para nombre y apellido */}
+                <div className="relative">
+                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                    Nombre y apellido
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                      <User size={18} />
+                    </div>
+                    <input
+                      type="text"
+                      id="fullName"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="Ingresa tu nombre y apellido"
+                      className={cn(
+                        "w-full px-4 py-3 pl-10 rounded-xl border focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm hover:shadow-md",
+                        !isNameValid ? "border-red-500 bg-red-50" : "border-gray-200"
+                      )}
+                      required
+                    />
+                  </div>
+                  {!isNameValid && (
+                    <p className="mt-2 text-sm text-red-500 flex items-center">
+                      <AlertCircle size={14} className="mr-1" />
+                      {nameError}
+                    </p>
+                  )}
+                </div>
+                
                 <div className="relative">
                   <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-2">
                     Universidad
