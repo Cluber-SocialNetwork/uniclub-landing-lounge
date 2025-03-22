@@ -13,7 +13,7 @@ const CTA = () => {
   const [nameError, setNameError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVerificationSent, setIsVerificationSent] = useState(false);
-  const [isEmailExists, setIsEmailExists] = useState(false); // Ahora usaremos este estado
+  const [isEmailExists, setIsEmailExists] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -177,6 +177,19 @@ const CTA = () => {
             mode: 'no-cors'
           });
 
+          // Guardamos el email en localStorage para tener registro local
+          if (!emailsSubmitted.includes(email)) {
+            emailsSubmitted.push(email);
+            localStorage.setItem('emailsSubmitted', JSON.stringify(emailsSubmitted));
+            success = true;
+          } else {
+            // Si ya estaba en localStorage, es un duplicado
+            setEmailError('Este correo ya está registrado, te pedimos que te registres con otro o nos contactes!');
+            setIsEmailValid(false);
+            setIsEmailExists(true);
+            success = false;
+          }
+
           console.warn("Using no-cors mode - cannot reliably check for duplicate emails");
         }
 
@@ -196,6 +209,17 @@ const CTA = () => {
       }
     }
   };
+
+  // Efecto de depuración
+  useEffect(() => {
+    console.log("Estado actual:", {
+      isSubmitted,
+      isEmailExists,
+      isVerificationSent,
+      isEmailValid,
+      isNameValid
+    });
+  }, [isSubmitted, isEmailExists, isVerificationSent, isEmailValid, isNameValid]);
 
   return (
     <section id="register" className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-white to-gray-300" ref={sectionRef}>
@@ -343,9 +367,19 @@ const CTA = () => {
                   {isSubmitted && !isEmailExists && (
                     <div className="mt-4 p-3 bg-green-50 border border-green-100 rounded-lg text-green-700 flex items-center justify-center animate-fade-in">
                       <CheckCircle size={18} className="mr-2" />
-                      <span>¡Gracias por tu interés! Te enviaremos información pronto..</span>
+                      <span>¡Gracias por tu interés! Te enviaremos información pronto.</span>
                     </div>
                   )}
+
+                  {/* Elimina este bloque para que no aparezca el mensaje duplicado */}
+                  {/*
+  {isEmailExists && (
+    <div className="mt-4 p-3 bg-red-50 border border-red-100 rounded-lg text-red-700 flex items-center justify-center animate-fade-in">
+      <AlertCircle size={18} className="mr-2" />
+      <span>Este correo ya está registrado, te pedimos que te registres con otro o nos contactes!</span>
+    </div>
+  )}
+  */}
                 </div>
               </div>
             </form>
