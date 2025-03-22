@@ -23,7 +23,7 @@ const NotFound = () => {
         </div>
         <h1 className="text-4xl font-bold mb-4 text-gray-800">404</h1>
         <p className="text-xl text-gray-600 mb-8">
-          Oops! La página que buscas no existe.
+          Ups! La página que buscas no existe.
         </p>
         <a 
           href="/" 
