@@ -205,3 +205,38 @@
     }
   }
 }
+
+/* Añade esto a tu archivo src/index.css */
+
+/* Previene el desplazamiento horizontal en dispositivos móviles */
+html, body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Asegura que todos los elementos estén contenidos dentro del viewport */
+* {
+  max-width: 100%;
+}
+
+/* Ajustes adicionales para secciones específicas que podrían causar desbordamiento */
+section {
+  overflow-x: hidden;
+}
+
+/* Mejora para los elementos con posición absoluta o fija */
+.absolute, .fixed {
+  max-width: 100vw;
+}
+
+/* Ajusta los elementos que usan transform */
+[class*="translate-"] {
+  transform-style: preserve-3d;
+}
+
+/* Corrección para elementos decorativos que podrían causar desbordamiento */
+.noise-bg,
+[class*="blur-"] {
+  overflow: hidden;
+}
