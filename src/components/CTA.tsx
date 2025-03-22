@@ -343,7 +343,7 @@ const CTA = () => {
                   {isSubmitted && !isEmailExists && (
                     <div className="mt-4 p-3 bg-green-50 border border-green-100 rounded-lg text-green-700 flex items-center justify-center animate-fade-in">
                       <CheckCircle size={18} className="mr-2" />
-                      <span>¡Gracias por tu interés! Te enviaremos información pronto.</span>
+                      <span>¡Gracias por tu interés! Te enviaremos información pronto..</span>
                     </div>
                   )}
                 </div>
